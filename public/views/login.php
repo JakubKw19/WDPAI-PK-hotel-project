@@ -14,7 +14,7 @@
         </div>
         <div class="login-container">
             <h1 class="signin">Sign In</h1>
-            <form>
+            <form action="login" method="POST">
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input name="email" type="text" placeholder="email@email.com">
@@ -23,8 +23,17 @@
                     <label for="password">Password</label>
                     <input name="password" type="password" placeholder="Password">
                 </div>
+                <div class="message-container">
+                    <?php
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                    ?>
+                </div>
                 <div class="input-container">
-                    <button class="login-button">CONTINUE</button>
+                    <button type="submit" class="login-button">CONTINUE</button>
                     <button class="fb-button">WITH FACEBOOK</button>
                 </div>
             </form>

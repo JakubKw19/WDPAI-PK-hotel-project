@@ -1,0 +1,217 @@
+#whole {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    padding: 50px;
+}
+
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    color: white;
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+}
+
+.gallery {
+    display: flex;
+    width: 100%;
+}
+
+.left-gallery {
+    width: 65%;
+    height: 100%;
+    padding-right: 14px;
+    border-radius: 20px 0 0 20px;
+    cursor: pointer;
+}
+
+.left-gallery img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+.right-gallery {
+    width: 35%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+}
+
+.img-top {
+    padding-bottom: 7px;
+    height: calc(50% - 7px);
+    cursor: pointer;
+}
+.img-bottom {
+    padding-top: 7px;
+    position: relative;
+    height: calc(50% - 7px);
+    cursor: pointer;
+}
+
+.black-div {
+    width: 100%;
+    height: calc(100% - 7px);
+    position: absolute;
+    background: rgba(0,0,0,.75);
+    border-radius: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px
+}
+
+.img-top img {
+    border-radius: 0 20px 0 0;
+    width: 100%;
+    height: 100%;
+}
+.img-bottom img {
+    border-radius: 0 0 20px 0;
+    width: 100%;
+    height: 100%;
+}
+
+.room-name {
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.pricing {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: white;
+    width: 100%;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.day-table {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upper-table-row {
+    width: 100%;
+    display: flex;
+}
+
+.day-table .header-table-row {
+    display: flex;
+    width: 100%;
+}
+
+.day-table .title {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+    height: 40px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.day-table-row {
+    display: flex;
+    font-weight: 300;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.upper-table-row .day-table-row:nth-child(1) {
+    width: 50%;
+    border-radius: 20px 0 0 0;
+    border-style: solid;
+    border-color: #777B7C;
+    border-width: 1px 0 1px 1px;
+}
+
+.upper-table-row .day-table-row:nth-child(2) {
+    width: 50%;
+    border-radius: 0 20px 0 0;
+    border-style: solid;
+    border-color: #777B7C;
+    border-width: 1px;
+}
+
+.bottom-table-row {
+    display: flex;
+    width: 100%;
+}
+
+.bottom-table-row .day-table-row {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    border-style: solid;
+    border-color: #777B7C;
+    border-width: 0 1px 1px 1px;
+}
+
+.pricing-text {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.pricing-text .left-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-text .right-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.pricing-text span {
+    padding-top: 10px;
+}
+
+.bttn-div {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 70px;
+}
+
+.reserve-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    background: #FE474D;
+    width: 170px;
+    height: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+.reserve-button:hover {
+    cursor: pointer;
+}
