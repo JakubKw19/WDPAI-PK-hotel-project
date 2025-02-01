@@ -44,7 +44,6 @@
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.8);
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
     display: none;
@@ -60,7 +59,7 @@
     color: white;
 }
 
-.hotel-editor-panel .editor-header {
+.editor-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -107,9 +106,6 @@
     color: white;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
     align-self: flex-start;
-}
-
-#description {
     min-width: 400px;
     min-height: 200px;
 }
@@ -133,6 +129,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .hotel-picture input {
@@ -152,10 +149,129 @@
     margin-top: 10px;
     height: 200px;
     border: 1px solid #777B7C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #preview {
     max-width: 500px;
     max-height: 200px;
     display: none;
+}
+
+#add-room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border: 1px solid #777B7C;
+    align-self: flex-start;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#add-room img {
+    margin-left: 10px;
+    height: 25px;
+}
+
+#add-room:hover {
+    cursor: pointer;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+#room-container {
+    margin-top: 20px;
+    display: flex;
+    width: 70%;
+    height: 200px;
+}
+
+.room-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border: 1px solid #777B7C;
+    align-self: flex-start;
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 5px;
+}
+
+#room-editor {
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.room-editor-panel {
+    z-index: 10;
+    position: relative;
+    height: 70%;
+    width: 70%;
+    background: #313638;
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+}
+
+.room-editor-whole {
+    display: flex;
+}
+
+#exit-room:hover {
+    cursor: pointer;
+}
+
+.save-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    align-self: flex-end;
+    justify-self: flex-end;
+    background: #FE474D;
+    width: 170px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+.save-button:hover {
+    cursor: pointer;
+}
+
+#gallery-preview-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery-preview-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5px;
+    border: 1px solid #777B7C;
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 5px;
+    height: 30px;
 }

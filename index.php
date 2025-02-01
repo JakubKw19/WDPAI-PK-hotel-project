@@ -10,5 +10,6 @@ Routing::get('projects', 'DefaultController');
 Routing::get('gotohotel', 'DefaultController');
 Routing::get('gotoroom', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post('addhotel', 'HotelController');
 
 Routing::run($path);
