@@ -6,7 +6,7 @@ require_once 'AppController.php';
 require_once __DIR__."/../models/User.php";
     class SecurityController extends AppController {
         public function login() {
-            $user = new User('admin@domain.com', 'admin');
+            $user = new User('admin@domain.com', 'admin', 'admin');
             if (!$this->isPost()) {
                 return $this->render('login');
             }
@@ -18,7 +18,11 @@ require_once __DIR__."/../models/User.php";
             if ($user->getPassword() !== $password) {
                 return $this->render('login', ['messages' => ["The password is incorrect"]]);
             }
-            $this->render('projects');
+            if ($user->getType() === 'admin') {
+                $this->render('admin-panel');
+            } else {
+                $this->render('projects');
+            }
             die();
         }
 

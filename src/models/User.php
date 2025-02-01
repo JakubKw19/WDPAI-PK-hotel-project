@@ -6,10 +6,12 @@ class User
 {
     private $email;
     private $password;
-    public function __construct($email, $password)
+    private $type;
+    public function __construct($email, $password, $type)
     {
         $this->email = $email;
         $this->password = $password;
+        $this->type = $type;
     }
 
     /**
@@ -21,5 +23,8 @@ class User
     }
     public function getPassword() {
         return $this->password;
+    }
+    public function getType() {
+        return $this->type;
     }
 }
