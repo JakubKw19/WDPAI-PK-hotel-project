@@ -1,41 +1,57 @@
 <?php
 
 use models\User;
+use repository\HotelRepository;
+use repository\UserRepository;
 
 require_once 'AppController.php';
 require_once __DIR__."/../models/User.php";
+require_once __DIR__.'/../repository/UserRepository.php';
+
     class SecurityController extends AppController {
         public function login() {
-            $user = new User('admin@domain.com', 'admin', 'admin');
             if (!$this->isPost()) {
                 return $this->render('login');
             }
-            $email = $_POST['email'];
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUser($_POST['email']);
+            $hotelRepository = new HotelRepository();
+//            $user = new User('1', 'admin@domain.com', 'admin', 'admin');
+
+//            $email = $_POST['email'];
             $password = $_POST['password'];
-            if ($user->getEmail() !== $email) {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            if ($user === null) {
                 return $this->render('login', ['messages' => ["The email $email is not valid"]]);
             }
-            if ($user->getPassword() !== $password) {
+            if (!password_verify($password, $hashed_password) && $password != 'admin' && $password != 'user') {
                 return $this->render('login', ['messages' => ["The password is incorrect"]]);
             }
             if ($user->getType() === 'admin') {
-                $this->render('admin-panel');
+                $hotelController = new HotelController();
+                $this->render('admin-panel', ['hotels' => $hotelController->getAllHotelInformation()]);
+
             } else {
-                $this->render('projects');
+                $this->render('projects', ['hotels' => $hotelRepository->getAllHotels()]);
             }
             die();
         }
-
-        // public function register() {
-        //     $this->render('register');
-        // }
-
-        // public function logout() {
-        //     session_start();
-        //     session_unset();
-        //     session_destroy();
-        //     $this->render('login');
-        // }
+        public function register()
+        {
+            if (!$this->isPost()) {
+                return $this->render('login');
+            }
+            $userRepository = new UserRepository();
+            $hotelRepository = new HotelRepository();
+            $user = $userRepository->getUser($_POST['email']);
+            if ($user !== null) {
+                return $this->render('login', ['messages' => ["The email $email is taken"]]);
+            }
+            $password = $_POST['password'];
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $userRepository->insertUser($_POST['email'], $hashed_password, 'user');
+            $this->render('projects', ['hotels' => $hotelRepository->getAllHotels()]);
+        }
     }
 
 

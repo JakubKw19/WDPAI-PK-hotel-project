@@ -16,7 +16,10 @@ class Routing {
     }
 
     public static function run($url) {
-        $action = explode("/", $url)[0] ?: 'login';
+        $segments = explode("/", trim($url, "/"));
+        $action = $segments[0] ?: 'login';
+        $id = isset($segments[1]) ? $segments[1] : null;
+
         if (!array_key_exists($action, self::$routes)) {
             die('Wrong URL!');
         }
@@ -24,6 +27,11 @@ class Routing {
         $controller = self::$routes[$action];
         $object = new $controller;
 
-        $object->$action();
+        if ($id) {
+            $object->$action($id);
+        } else {
+            $object->$action();
+        }
     }
+
 }

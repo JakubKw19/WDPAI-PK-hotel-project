@@ -24,24 +24,23 @@
         <div class="secondary-text">You will be pleased</div>
         <div class="title-text"><span>Choose The Perfect Hotel</span><span>Just For You</span></div>
         <div class="hotels-container">
-            <div class="hotel-box">
-                <div class="hotel-image">
-                    <img src="public/img/hotel-1.jpg" alt="hotel-1">
-                </div>
-                <div class="hotel-text"><span>Hotel 1</span><a href="/gotohotel" class="arrow-left-link"><img src="public/img/arrow-left.svg" alt="arrow-left" /></a></div>
-            </div>
-            <div class="hotel-box">
-                <div class="hotel-image">
-                    <img src="public/img/hotel-2.jpg" alt="hotel-1">
-                </div>
-                <div class="hotel-text"><span>Hotel 2</span><a class="arrow-left-link"><img src="public/img/arrow-left.svg" alt="arrow-left" /></a></div>
-            </div>
-            <div class="hotel-box">
-                <div class="hotel-image">
-                    <img src="public/img/hotel-3.jpg" alt="hotel-1">
-                </div>
-                <div class="hotel-text"><span>Hotel 3</span><a class="arrow-left-link"><img src="public/img/arrow-left.svg" alt="arrow-left" /></a></div>
-            </div>
+            <?php
+                if (isset($hotels)) {
+                    foreach ($hotels as $hotel) {
+                        // For each hotel, create a hotel box
+                        echo '<div class="hotel-box">';
+                        echo '<div class="hotel-image">';
+                        echo '<img src="public/uploads/' . $hotel['image'] . '" alt="' . $hotel['name'] . '">';
+                        echo '</div>';
+                        echo '<div class="hotel-text"><span>' . $hotel['name'] . '</span>';
+                        echo '<a href="/gotohotel/' . $hotel['id'] . '" class="arrow-left-link">';
+                        echo '<img src="public/img/arrow-left.svg" alt="arrow-left" /></a></div>';
+                        echo '</div>';
+                    }
+                }
+
+
+            ?>
         </div>
     </div>
 </div>

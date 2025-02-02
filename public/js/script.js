@@ -47,9 +47,16 @@ if (settingsButtons) {
         settingsButtons[i].addEventListener('click', (e) => {
             e.preventDefault();
             let hotelId = settingsButtons[i].getAttribute('data-hotel-id');
-            hotelEditor.style.display = 'flex';
-            hotelSpanId.innerText = hotelId.toString();
-            console.log(hotelId);
+            fetch("/delhotel/" + hotelId, {
+                method: "GET",
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Success:", data);
+                    window.location.reload();
+                })
+                .catch(error => console.error("Error:", error));
+
         })
     }
 }
@@ -88,7 +95,7 @@ addRoomButton.addEventListener('click', (e) => {
 })
 
 
-saveButton.addEventListener('click', (e) => {
+saveButton.addEventListener('click', async (e) => {
     e.preventDefault();
     let formData = new FormData(document.getElementById('hotel-form'));
     let fileInput = document.getElementById("hotel-picture");
@@ -102,12 +109,16 @@ saveButton.addEventListener('click', (e) => {
         room.images = room.images.map((image, i) => `room-${index}-image-${i}`);
     });
     formData.append("rooms", JSON.stringify(rooms));
+    console.log(rooms);
     fetch("/addhotel", {
         method: "POST",
         body: formData,
     })
         .then(response => response.json())
-        .then(data => console.log("Success:", data))
+        .then(data => {
+            console.log("Success:", data);
+            window.location.reload();
+        })
         .catch(error => console.error("Error:", error));
     hotelEditor.style.display = 'none';
     preview.src = "";
@@ -115,6 +126,7 @@ saveButton.addEventListener('click', (e) => {
     roomGalleryFiles = [];
     roomCount = 0;
     roomContainer.innerHTML = "";
+
 })
 
 saveRoomButton.addEventListener('click', (e) => {

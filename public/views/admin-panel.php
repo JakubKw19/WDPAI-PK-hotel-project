@@ -26,12 +26,24 @@
         <div class="title-text"><span>Hotels</span></div>
         <div id="add-hotel"><span>Add Hotel</span><img src="/public/img/add-icon.svg" alt="add-icon"></div>
         <div class="hotel-list">
+            <?php
+                if (!isset($hotels)) {
+                    die("Hotels not found");
+                }
+            ?>
+            <?php foreach ($hotels as $hotel): ?>
             <div class="hotel-box">
                 <div class="hotel-image">
-                    <img src="public/img/hotel-1.jpg" alt="hotel-1">
+                    <img src="public/uploads/<?= htmlspecialchars($hotel['image']); ?>" alt="<?= htmlspecialchars($hotel['name']); ?>">
                 </div>
-                <div class="hotel-text"><span>Hotel 1</span><div class="edit-hotel" data-hotel-id="1"><img src="public/img/settings-icon.svg" alt="settings-icon" /></a></div>
+                <div class="hotel-text">
+                    <span><?= htmlspecialchars($hotel['name']); ?></span>
+                    <div class="edit-hotel" data-hotel-id="<?= htmlspecialchars($hotel['id']); ?>">
+                        <img src="public/img/exit.svg" alt="exit" />
+                    </div>
+                </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
         <div id="hotel-editor">

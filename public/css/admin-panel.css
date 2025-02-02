@@ -27,10 +27,13 @@
 
 .edit-hotel {
     margin-right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-hotel:hover {
@@ -38,7 +41,7 @@
 }
 
 #hotel-editor {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -51,7 +54,6 @@
 
 .hotel-editor-panel {
     position: relative;
-    height: 70%;
     width: 70%;
     background: #313638;
     border-radius: 20px;
@@ -206,7 +208,7 @@ label {
 
 #room-editor {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -220,7 +222,6 @@ label {
 .room-editor-panel {
     z-index: 10;
     position: relative;
-    height: 70%;
     width: 70%;
     background: #313638;
     border-radius: 20px;
@@ -274,4 +275,10 @@ label {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-right: 5px;
     height: 30px;
+}
+
+@media only screen and (max-device-width: 1200px) {
+    .form-item textarea {
+        min-width: 300px;
+    }
 }

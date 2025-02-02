@@ -1,6 +1,9 @@
 <?php
 
+use repository\HotelRepository;
+
 require_once 'AppController.php';
+require_once __DIR__.'/../repository/HotelRepository.php';
 
 class DefaultController extends AppController {
     public function index() {
@@ -11,13 +14,25 @@ class DefaultController extends AppController {
         $this->render('projects');
     }
 
-    public function gotohotel()
+    public function gotohotel($id)
     {
-        $this->render('hotel-description');
+        $hotelRepository = new HotelRepository();
+        $hotel = $hotelRepository->getHotelById($id);
+        $rooms = $hotelRepository->getRoomsByHotelId($id);
+
+        // Pass data to the view
+        $this->render('hotel-description', [
+            'hotel' => $hotel,
+            'rooms' => $rooms,
+        ]);
     }
 
-    public function gotoroom()
+    public function gotoroom($id)
     {
-        $this->render('room-details');
+        $hotelRepository = new HotelRepository();
+        $this->render('room-details', [
+            'room' => $hotelRepository->getRoomById($id),
+        ]);
+
     }
 }

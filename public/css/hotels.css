@@ -34,6 +34,7 @@ body {
     height: 10vh;
     width: 100%;
     background: rgba(0,0,0,0.75);
+    z-index: 10;
 }
 
 .logotype {
@@ -103,6 +104,7 @@ body {
     margin-top: 100px;
 }
 
+
 .hotel-box {
     display: flex;
     flex-direction: column;
@@ -110,6 +112,15 @@ body {
     max-width: 460px;
     margin: 20px;
     /*margin-left: 75px;*/
+}
+
+@media only screen and (max-device-width: 720px) {
+    .hotels-container {
+        max-width: 90vw;
+    }
+    .hotel-box {
+        /*margin-left: 75px;*/
+    }
 }
 
 .hotel-image {

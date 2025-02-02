@@ -14,7 +14,7 @@
         </div>
         <div class="login-container">
             <h1 class="signin">Sign In</h1>
-            <form action="login" method="POST">
+            <form id="loginForm" method="POST">
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input name="email" type="text" placeholder="email@email.com">
@@ -33,10 +33,21 @@
                     ?>
                 </div>
                 <div class="input-container">
-                    <button type="submit" class="login-button">CONTINUE</button>
-                    <button class="fb-button">WITH FACEBOOK</button>
-                </div>
+                    <button type="button" class="login-button" onclick="submitForm('login')">CONTINUE</button>
+                    <button type="button" class="fb-button" onclick="submitForm('register')">SIGN UP</button>
             </form>
+<!--            <form action="register" method="POST">-->
+<!--                    -->
+<!--            </form>-->
+        </div>
+
         </div>
     </div>
+    <script>
+        function submitForm(action) {
+            const form = document.getElementById('loginForm');
+            form.action = action;
+            form.submit();
+        }
+    </script>
 </body>
