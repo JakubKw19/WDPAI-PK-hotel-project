@@ -26,7 +26,7 @@ docker-compose up -d
 docker ps
 
 CONTAINER ID   IMAGE                       
-18820bf46545   wdpai-pk-hotel-project-web
+18820bf46545   postgres
 
 ## 4. Aby uzyskać szczegóły dotyczące kontenera, użyj polecenia:
 
