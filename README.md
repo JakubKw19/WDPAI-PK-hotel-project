@@ -34,11 +34,12 @@ docker inspect 18820bf46545
 
 ## 6. Edytuj plik config.php i wprowadź poniższe dane:
 
-<?php
-
 const USERNAME = 'admin';
+
 const PASSWORD = 'root';
+
 const HOST = '172.18.0.3';  // Zastąp tym adresem IP, który znalazłeś
+
 const DATABASE = 'wdpai-hotel-project';
 
 ## Uwaga: Jeśli baza danych działa już na domyślnym adresie IP, ten krok może nie być konieczny.
