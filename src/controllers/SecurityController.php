@@ -24,7 +24,7 @@ require_once __DIR__.'/../repository/UserRepository.php';
             if ($user === null) {
                 return $this->render('login', ['messages' => ["The email $email is not valid"]]);
             }
-            if (!password_verify($password, $hashed_password) && $password != 'admin' && $password != 'user') {
+            if (!password_verify($password, $user->getPassword()) && $password != 'admin' && $password != 'user') {
                 return $this->render('login', ['messages' => ["The password is incorrect"]]);
             }
             if ($user->getType() === 'admin') {
