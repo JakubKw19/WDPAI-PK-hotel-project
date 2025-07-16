@@ -21,36 +21,7 @@ docker-compose build
 
 docker-compose up -d
 
-## 3. Następnie uruchom poniższe polecenie, aby wyświetlić uruchomione kontenery:
+## 3. Wejdź na stronę i się zaloguj
 
-docker ps
-
-CONTAINER ID   IMAGE                       
-18820bf46545   postgres
-
-## 4. Aby uzyskać szczegóły dotyczące kontenera, użyj polecenia:
-
-docker inspect <Container_ID>
-
-docker inspect 18820bf46545
-
-## 5. Przewiń na dół wyników inspekcji i znajdź sekcję Networks. Powinno to wyglądać na przykład tak:
-
-"Networks": {
-    ...
-        "IPAddress": "172.18.0.3"
-    ...
-}
-
-## 6. Edytuj plik config.php i wprowadź poniższe dane:
-
-const USERNAME = 'admin';
-
-const PASSWORD = 'root';
-
-const HOST = '172.18.0.3';  // Zastąp tym adresem IP, który znalazłeś
-
-const DATABASE = 'wdpai-hotel-project';
-
-## Uwaga: Jeśli baza danych działa już na domyślnym adresie IP, ten krok może nie być konieczny.
+http://localhost:8080/
 
